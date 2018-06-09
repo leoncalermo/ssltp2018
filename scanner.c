@@ -1,40 +1,77 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include "scanner.h"
 
+FILE *Archivo;
 
-extern typedef enum TOKEN;
-extern int id;
-extern int constEnteras;
-extern int errores;
+int tabla_de_estados[4][5]=
+{{LEYENDO_CONS, LEYENDO_ID, LEYENDO_ERROR, ESTADO_INICIAL, FIN_DE_TEXTO},
+{LEYENDO_CONS, LEIDO_CONS, LEIDO_CONS, LEIDO_CONS, LEIDO_CONS},
+{LEYENDO_ID, LEYENDO_ID, LEIDO_ID, LEIDO_ID, LEIDO_ID},
+{LEIDO_ERROR, LEIDO_ERROR, LEYENDO_ERROR, LEIDO_ERROR, LEIDO_ERROR}
+};
 
-TOKEN scanner(void){
-
-   int tabla  [6] [4] = {1,2,5,6,7},
-                        {1,1,3,3,3},
-                        {99,99,99,99,99},
-                        {99,99,99,99,99},
-                        {99,99,99,99,99},
-                        {99,99,99,99,99},
-                        {99,99,99,99,99};
-   int columna=0;
-   int estado = 0;
-   char caracter;
-   while(estado != '99'){
-    caracter = getchar();
-    switch(1){
-       case isdigit(caracter): return columna=1;
-       case isalpha(caracter): return columna=2;
-       case caracter=='\0': return columna=3;
-       case caracter=='\n':return columna=4;
-       default: return columna=6;
-    }
-    estado = tabla [estado] [columna];
-    if (estado==3) id++;
-    if (estado==4) constEnteras++;
-    if (estado==7) errores;
-    ultimoEstado = estado;
+bool esEstadoAceptor(int estadoActual)
+{
+   if (estadoActual == LEIDO_ERROR || estadoActual == LEIDO_ID || estadoActual == LEIDO_CONS || estadoActual == FIN_DE_TEXTO) {
+      return true;
    }
-   if (ultimoEstado==3) return IDENTIFICADOR;
-   if (ultimoEstado==4) return CONSTANTE; else return ERROR;
+   else { 
+      return false;
+    }
+}
+
+int tipoDeToken(int estadoActual){
+  int token;
+  switch(estadoActual) {
+    case LEIDO_ERROR:
+        token = ERROR;
+            break;
+
+    case LEIDO_CONSTANTE:
+        token = CONS;
+            break;
+
+    case LEIDO_IDENTIFICADOR:
+        token = ID;
+            break;
+
+        case FIN_DE_TEXTO:
+    token = FDT;
+    break;
+  }
+  return token ;
+}
+
+
+int tipoCaracter(char caracter){
+    if(islower(caracter)){ 
+        return ES_CARACTER;
+    }else if(isdigit(caracter)){ 
+        return ES_CONS;
+    }else if(isspace(caracter)){ 
+        return ES_ESPACIO;
+    }else if(caracter == EOF){ 
+      return ES_FDT;
+  } else {
+        return ES_ERROR;
+    }
+}
+
+
+int scanner(FILE *Archivo){
+   int estadoActual = ESTADO_INICIAL;
+    char caracter;
+    while(!esEstadoAceptor (estadoActual)){
+
+        caracter = getc(Archivo);
+        int tipodecaracter = tipoCaracter(caracter);
+        estadoActual = tabla_de_estados[estadoActual][tipodecaracter];
+    }
+    if(estadoActual!=FIN_DE_TEXTO){
+       ungetc(caracter, Archivo);
+    }
+
+        return tipoDeToken(estadoActual);
 }
