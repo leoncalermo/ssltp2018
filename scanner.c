@@ -8,7 +8,7 @@ extern int id;
 extern int constEnteras;
 extern int errores;
 
-TOKEN scaner(void){
+TOKEN scanner(void){
 
    int tabla  [6] [4] = {1,2,5,6,7},
                         {1,1,3,3,3},

@@ -6,6 +6,6 @@ int id;
 int constEnteras;
 int errores;
 
-TOKEN scaner(void);
+TOKEN scanner(void);
 
 #endif // SCANNER_H_INCLUDED
