@@ -15,11 +15,11 @@ int main (){
         switch(token) {
             case ID:
                 printf("Identificador\n");
-                cantIdentificadores++;
+                cantId++;
                 break;
             case CONS:
                 printf("Constante Entera\n");
-                cantConstantes++;
+                cantCons++;
                 break;
             case ERROR:
                 printf("Error\n");

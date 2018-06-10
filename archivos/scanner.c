@@ -17,7 +17,7 @@ bool esEstadoAceptor(int estadoActual)
    if (estadoActual == LEIDO_ERROR || estadoActual == LEIDO_ID || estadoActual == LEIDO_CONS || estadoActual == FIN_DE_TEXTO) {
       return true;
    }
-   else { 
+   else {
       return false;
     }
 }
@@ -29,11 +29,11 @@ int tipoDeToken(int estadoActual){
         token = ERROR;
             break;
 
-    case LEIDO_CONSTANTE:
+    case LEIDO_CONS:
         token = CONS;
             break;
 
-    case LEIDO_IDENTIFICADOR:
+    case LEIDO_ID:
         token = ID;
             break;
 
@@ -46,13 +46,13 @@ int tipoDeToken(int estadoActual){
 
 
 int tipoCaracter(char caracter){
-    if(islower(caracter)){ 
+    if(islower(caracter)){
         return ES_CARACTER;
-    }else if(isdigit(caracter)){ 
+    }else if(isdigit(caracter)){
         return ES_CONS;
-    }else if(isspace(caracter)){ 
+    }else if(isspace(caracter)){
         return ES_ESPACIO;
-    }else if(caracter == EOF){ 
+    }else if(caracter == EOF){
       return ES_FDT;
   } else {
         return ES_ERROR;
