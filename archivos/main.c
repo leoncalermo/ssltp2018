@@ -3,13 +3,25 @@
 #include <stdbool.h>
 #include "scanner.h"
 
+
+
 int main (){
-    FILE *Archivo = fopen("textoTP.txt","r");
     int cantCons = 0;
     int cantId =0;
     int cantErrores =0;
     int token;
-
+    char caracter;
+    FILE *Archivo;
+   if(Archivo=fopen("textoTP.txt","w"))
+    {printf("ingrese el valor: ");
+    while((caracter = getchar()) != '\n')
+ 	{
+ 		printf("%c", fputc(caracter, Archivo));
+ 	}
+ 	printf("\n");
+ 	fclose(Archivo);
+    }
+    Archivo=fopen("textoTP.txt","r");
     token = scanner(Archivo);
     while(token != FDT){
         switch(token) {
@@ -35,3 +47,4 @@ int main (){
     fclose(Archivo);
     return 0;
 }
+

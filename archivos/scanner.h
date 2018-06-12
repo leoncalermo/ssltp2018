@@ -2,7 +2,6 @@
 #define SCANNER_H_INCLUDED
 #include <stdbool.h>
 
-
 bool esEstadoAceptor(int estadoActual);
 int tipoCaracter(char caracter);
 int scanner(FILE *Archivo);

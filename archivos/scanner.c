@@ -4,6 +4,7 @@
 #include "scanner.h"
 
 FILE *Archivo;
+typedef int TOKEN;
 
 int tabla_de_estados[4][5]=
 {{LEYENDO_CONS, LEYENDO_ID, LEYENDO_ERROR, ESTADO_INICIAL, FIN_DE_TEXTO},
@@ -60,7 +61,7 @@ int tipoCaracter(char caracter){
 }
 
 
-int scanner(FILE *Archivo){
+TOKEN scanner(FILE *Archivo){
    int estadoActual = ESTADO_INICIAL;
     char caracter;
     while(!esEstadoAceptor (estadoActual)){
