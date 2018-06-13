@@ -1,3 +1,14 @@
+// TP00 - 2018
+//
+// Un escaner elemental
+//
+// Grupo 05
+//
+// Calermo, Leon - 153.566-3
+// Diaz Argentino, Sebastian - 159.504-0
+// Grimberg, Axel - 159.378-0
+// Pollola, Mariano - 160.555-0
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -47,4 +58,3 @@ int main (){
     fclose(Archivo);
     return 0;
 }
-
