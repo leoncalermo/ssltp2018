@@ -47,7 +47,7 @@ int tipoDeToken(int estadoActual){
 
 
 int tipoCaracter(char caracter){
-    if(islower(caracter)){
+    if(isalpha(caracter)){
         return ES_CARACTER;
     }else if(isdigit(caracter)){
         return ES_CONS;

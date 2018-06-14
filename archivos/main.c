@@ -23,15 +23,7 @@ int main (){
     int token;
     char caracter;
     FILE *Archivo;
-   if(Archivo=fopen("textoTP.txt","w"))
-    {printf("ingrese el valor: ");
-    while((caracter = getchar()) != '\n')
- 	{
- 		printf("%c", fputc(caracter, Archivo));
- 	}
- 	printf("\n");
- 	fclose(Archivo);
-    }
+
     Archivo=fopen("textoTP.txt","r");
     token = scanner(Archivo);
     while(token != FDT){
