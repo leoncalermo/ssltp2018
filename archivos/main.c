@@ -2,7 +2,7 @@
 //
 // Un escaner elemental
 //
-// Grupo 05
+// Grupo 07
 //
 // Calermo, Leon - 153.566-3
 // Diaz Argentino, Sebastian - 159.504-0
