@@ -7,7 +7,7 @@ int tipoCaracter(char caracter);
 int scanner(FILE *Archivo);
 enum estados{ESTADO_INICIAL, LEYENDO_CONS,  LEYENDO_ID, LEYENDO_ERROR, LEIDO_CONS, LEIDO_ID, LEIDO_ERROR, FIN_DE_TEXTO};
 enum ES{ES_CONS, ES_CARACTER, ES_ERROR, ES_ESPACIO, ES_FDT};
-enum numbresColumnas{ID, CONS, ERROR, FDT};;
+enum numbresColumnas{ID, CONS, ERROR, FDT};
 
 
 #endif // SCANNER_H_INCLUDED
