@@ -1,0 +1,24 @@
+TP1 Lenguaje Mini 
+Gramática Léxica
+
+Grupo: 07
+
+Diaz Argentino, Sebastián - 159.504-0
+Calermo, León - 153.566-3
+Grimberg, Axel - 159.504-0
+Pollola, Mariano - 160.555-0
+
+<token> ::= <identificador> | <palabraReservada> | <numero> | 
+        <operador> | <asignacion> | <puntuacion>
+
+<identificador>::= <letra> | <identificador><letra> | <identificador><numero>
+<letra>::= <letraMay> | <letraMin>
+<letraMin> ::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z
+<letraMin> ::= A|B|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
+<numero> ::=<digito> | <digito><numero>
+<digito> ::= 1|2|3|4|5|6|7|8|9|0
+<palabraReservada> ::= programa | variables | definir | leer | escribir | codigo | fin
+<operador> ::= + | - | * | / 
+<asignacion> ::= <-
+<puntuacion> . | ( | ) | , | // 
+
