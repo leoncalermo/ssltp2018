@@ -1,0 +1,24 @@
+TP02 - Gramática Sintáctica
+Grupo: 07
+
+Diaz Argentino, Sebastián - 159.504-0
+Calermo, León - 153.566-3
+Grimberg, Axel - 159.504-0
+Pollola, Mariano - 160.555-0
+
+
+<lenguajeMini> ::= programa variables <declaraciones> codigo <codigo> fin
+<declaraciones> ::= <declaracion><declaraciones> | <declaracion>
+<declaracion> ::= definir <identificador> .
+
+<codigo> ::= <sentencia> <codigo>| <sentencia>
+<sentencia>::= <identificador> <- <expresion>. | leer (<identificadores>). | escribir(<identificadores>). | leer(<expresiones>). | escribir(<expresiones>).
+
+<expresion> ::= <termino> | <expresion> <operadorAditivo> <termino>
+<termino> ::= <factor> | <termino><operadorMultiplicativo><factor>
+<factor> ::= <numero>| <identificador> | -<expresion> | (<expresion>) 
+
+<operadorAditivo> ::= + | -
+<operadorMultiplicativo> ::= * | /
+<identificadores> ::= <identificador>,<identificadores> | <identificador>
+<expresiones> ::= <expresion> , <expresiones> | <expresion>
