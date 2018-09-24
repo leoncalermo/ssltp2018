@@ -1,1 +1,1 @@
-enum tokens{identificador, palabraReservada, numero, operador, asignacion, puntuacion};
+enum tokens{IDENTIFICADOR,PALABRARESERVADA, NUMERO, OPERADORAD,OPERADORMULT, ASIGN, PUNT};
