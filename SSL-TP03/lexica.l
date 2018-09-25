@@ -11,7 +11,7 @@ int operadorMultiplicativo=0;
 int asignacion=0;
 int puntuacion=0;
 %}
-%option outfile="main.c"
+%option outfile="lexica.c"
 %option nodefault
 digdecimal           [0-9]
 letra                         [a-zA-Z]

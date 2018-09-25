@@ -1,8 +1,8 @@
-#line 2 "main.c"
+#line 2 "lexica.c"
 #include  <stdio.h>
 #include  "tokens.h"
 
-#line 6 "main.c"
+#line 6 "lexica.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -513,7 +513,7 @@ int operadorAditivo=0;
 int operadorMultiplicativo=0;
 int asignacion=0;
 int puntuacion=0;
-#line 517 "main.c"
+#line 517 "lexica.c"
 
 #define INITIAL 0
 
@@ -733,7 +733,7 @@ YY_DECL
 	{
 #line 20 "lexica.l"
 
-#line 737 "main.c"
+#line 737 "lexica.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -896,7 +896,7 @@ YY_RULE_SETUP
 #line 42 "lexica.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 900 "main.c"
+#line 900 "lexica.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
