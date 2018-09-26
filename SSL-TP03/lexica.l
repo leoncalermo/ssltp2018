@@ -10,6 +10,7 @@ int operadorAditivo=0;
 int operadorMultiplicativo=0;
 int asignacion=0;
 int puntuacion=0;
+int letra=0;
 %}
 %option outfile="lexica.c"
 %option nodefault
@@ -20,8 +21,15 @@ palabrareservada ["programa"|"variables"|"definir"|"leer"|"escribir" |"codigo"|"
 
 %%
 {dignumero}{dignumero}*     numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;
-{palabrareservada}+                    {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
-{letra}{caracter}*            id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;
+"variables"                                         {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"programa"                                      {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"definir"                                              {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"leer"                                                     {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"escribir"                                             {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"codigo"                                               {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+"fin"                                                        {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+{letra}                                            {letra++;printf("reconocio la letra %s \n",yytext);return LETRA;}
+{letra}{caracter}*             id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;
 "+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
 "-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
 "*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s \n",yytext);return OPERADORMULT;}
