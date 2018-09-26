@@ -18,8 +18,8 @@ letra [[:alpha::]]
 caracter [[:alnum:]]
 
 %%
-{dignumero}{dignumero}*     {numero++;printf("reconocio el numero %s",yytext); return NUMERO;}
-{letra} {caracter}*          id++;printf("reconocio el id %s",yytext);return IDENTIFICADOR;
+{dignumero}{dignumero}*     numero++;printf("reconocio el numero %s",yytext); return NUMERO;
+{letra}{caracter}*          id++;printf("reconocio el id %s",yytext);return IDENTIFICADOR;
 "+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
 "-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
 "*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s",yytext);return OPERADORMULT;}
