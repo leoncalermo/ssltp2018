@@ -1,6 +1,7 @@
 %top{
 #include  <stdio.h>
 #include  "tokens.h"
+
 }
 %{
 int id=0;
@@ -23,7 +24,7 @@ constanteInvalida [[:^digit:]]
 otro [[:^alnum:]]{-}[[:space :]]
 
 %%
-{dignumero}{dignumero}*     numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;
+{dignumero}{dignumero}*     {numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;}
 "variables"                                         {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 "programa"                                      {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 "definir"                                              {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
@@ -32,7 +33,7 @@ otro [[:^alnum:]]{-}[[:space :]]
 "codigo"                                               {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 "fin"                                                        {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 {letra}                                            {letra++;printf("reconocio la letra %s \n",yytext);return LETRA;}
-{letra}{caracter}*             id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;
+{letra}{caracter}*                          {id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;}
 "+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
 "-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
 "*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s \n",yytext);return OPERADORMULT;}
@@ -43,7 +44,7 @@ otro [[:^alnum:]]{-}[[:space :]]
 ")"                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 ","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 "//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
-{dignumero}{constanteInvalida}      {error++;printf("reconocio constante invalida %s \n",yytext);}
+{dignumero}{constanteInvalida}      {error++;printf("reconocio constante invalida %s \n",yytext);return ERROR;}
 {otro}+                                                  {error++;printf("reconocio error lexico %s \n",yytext);}
 {espacio}+
 
@@ -51,7 +52,8 @@ otro [[:^alnum:]]{-}[[:space :]]
 .|\n                                                       ;
 %%
 
-char  *tokenNames [] = { "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT"  };
+
+char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT","ERROR" };
 
 int main(void){
    enum tokens t;

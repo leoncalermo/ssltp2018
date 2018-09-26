@@ -441,21 +441,21 @@ static yyconst YY_CHAR yy_meta[34] =
 
 static yyconst flex_uint16_t yy_base[76] =
     {   0,
-        0,    0,  102,   84,   32,   35,   83,   82,   81,   80,
-       79,   78,   77,   28,   80,  103,   31,    0,   63,   69,
-       58,   64,   66,   56,   68,    0,   40,  103,  103,   72,
-      103,    0,   63,   60,   62,   53,   58,   50,   47,   60,
+        0,    0,  103,   85,   32,   35,   84,   83,   82,   81,
+       80,   79,   78,   28,   81,  104,   31,    0,   64,   70,
+       59,   65,   67,   57,   69,    0,   40,  104,   73,   72,
+      104,    0,   63,   60,   62,   53,   58,   50,   47,   60,
        51,   50,   43,    0,   42,   48,   46,   46,   41,   43,
         0,   36,   48,   36,   39,   44,   44,   42,    0,   29,
        34,   31,   31,    0,   25,   37,   32,    0,    0,   21,
-        0,  103,   49,   44,   45
+        0,  104,   49,   44,   45
     } ;
 
 static yyconst flex_int16_t yy_def[76] =
     {   0,
        72,    1,   72,   72,   72,   72,   72,   72,   72,   72,
        72,   72,   72,   72,   73,   72,   72,   74,   74,   74,
-       74,   74,   74,   74,   74,   75,   72,   72,   72,   72,
+       74,   74,   74,   74,   74,   75,   72,   72,   73,   72,
        72,   74,   74,   74,   74,   74,   74,   74,   74,   72,
        74,   74,   74,   74,   74,   74,   74,   74,   74,   74,
        74,   74,   74,   74,   74,   74,   74,   74,   74,   74,
@@ -463,7 +463,7 @@ static yyconst flex_int16_t yy_def[76] =
        74,    0,   72,   72,   72
     } ;
 
-static yyconst flex_uint16_t yy_nxt[137] =
+static yyconst flex_uint16_t yy_nxt[138] =
     {   0,
         4,    5,    5,    6,    7,    8,    9,   10,   11,   12,
        13,   14,   15,   16,   17,   18,    4,   18,   18,   19,
@@ -473,16 +473,16 @@ static yyconst flex_uint16_t yy_nxt[137] =
        29,   29,   71,   70,   69,   68,   67,   66,   65,   64,
        63,   62,   61,   60,   59,   58,   57,   56,   55,   54,
        53,   52,   51,   50,   49,   48,   26,   47,   46,   45,
-       44,   43,   42,   41,   30,   39,   38,   37,   36,   35,
-       34,   33,   30,   26,   26,   26,   26,   26,   26,   26,
+       44,   43,   42,   41,   30,   72,   39,   38,   37,   36,
+       35,   34,   33,   30,   26,   26,   26,   26,   26,   26,
 
-       26,   72,    3,   72,   72,   72,   72,   72,   72,   72,
+       26,   26,   72,    3,   72,   72,   72,   72,   72,   72,
        72,   72,   72,   72,   72,   72,   72,   72,   72,   72,
        72,   72,   72,   72,   72,   72,   72,   72,   72,   72,
-       72,   72,   72,   72,   72,   72
+       72,   72,   72,   72,   72,   72,   72
     } ;
 
-static yyconst flex_int16_t yy_chk[137] =
+static yyconst flex_int16_t yy_chk[138] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -492,13 +492,13 @@ static yyconst flex_int16_t yy_chk[137] =
        73,   73,   70,   67,   66,   65,   63,   62,   61,   60,
        58,   57,   56,   55,   54,   53,   52,   50,   49,   48,
        47,   46,   45,   43,   42,   41,   40,   39,   38,   37,
-       36,   35,   34,   33,   30,   25,   24,   23,   22,   21,
-       20,   19,   15,   13,   12,   11,   10,    9,    8,    7,
+       36,   35,   34,   33,   30,   29,   25,   24,   23,   22,
+       21,   20,   19,   15,   13,   12,   11,   10,    9,    8,
 
-        4,    3,   72,   72,   72,   72,   72,   72,   72,   72,
+        7,    4,    3,   72,   72,   72,   72,   72,   72,   72,
        72,   72,   72,   72,   72,   72,   72,   72,   72,   72,
        72,   72,   72,   72,   72,   72,   72,   72,   72,   72,
-       72,   72,   72,   72,   72,   72
+       72,   72,   72,   72,   72,   72,   72
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -517,7 +517,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "scanner.l"
 
-#line 6 "scanner.l"
+#line 7 "scanner.l"
 int id=0;
 int palabraReservada=0;
 int numero=0;
@@ -745,7 +745,7 @@ YY_DECL
 		}
 
 	{
-#line 25 "scanner.l"
+#line 26 "scanner.l"
 
 #line 751 "scanner.c"
 
@@ -780,7 +780,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 103 );
+		while ( yy_base[yy_current_state] != 104 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -806,131 +806,131 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 26 "scanner.l"
-numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;
+#line 27 "scanner.l"
+{numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;}
 	YY_BREAK
 case 2:
-YY_RULE_SETUP
-#line 27 "scanner.l"
-{palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
-	YY_BREAK
-case 3:
 YY_RULE_SETUP
 #line 28 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 4:
+case 3:
 YY_RULE_SETUP
 #line 29 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 5:
+case 4:
 YY_RULE_SETUP
 #line 30 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 6:
+case 5:
 YY_RULE_SETUP
 #line 31 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 7:
+case 6:
 YY_RULE_SETUP
 #line 32 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 8:
+case 7:
 YY_RULE_SETUP
 #line 33 "scanner.l"
 {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
 	YY_BREAK
-case 9:
+case 8:
 YY_RULE_SETUP
 #line 34 "scanner.l"
+{palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 35 "scanner.l"
 {letra++;printf("reconocio la letra %s \n",yytext);return LETRA;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 35 "scanner.l"
-id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;
+#line 36 "scanner.l"
+{id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;}
 	YY_BREAK
 case 11:
-YY_RULE_SETUP
-#line 36 "scanner.l"
-{operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
-	YY_BREAK
-case 12:
 YY_RULE_SETUP
 #line 37 "scanner.l"
 {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
 	YY_BREAK
-case 13:
+case 12:
 YY_RULE_SETUP
 #line 38 "scanner.l"
+{operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
+	YY_BREAK
+case 13:
+YY_RULE_SETUP
+#line 39 "scanner.l"
 {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s \n",yytext);return OPERADORMULT;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 39 "scanner.l"
+#line 40 "scanner.l"
 {operadorMultiplicativo++;printf("reconocio el operadorMultiplicativo %s \n",yytext);return OPERADORMULT;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 40 "scanner.l"
+#line 41 "scanner.l"
 {asignacion++;printf("reconocio el caracter de asignacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 41 "scanner.l"
+#line 42 "scanner.l"
 {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 42 "scanner.l"
+#line 43 "scanner.l"
 {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 43 "scanner.l"
+#line 44 "scanner.l"
 {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 44 "scanner.l"
+#line 45 "scanner.l"
 {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 45 "scanner.l"
+#line 46 "scanner.l"
 {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 	YY_BREAK
 case 21:
 /* rule 21 can match eol */
 YY_RULE_SETUP
-#line 46 "scanner.l"
-{error++;printf("reconocio constante invalida %s \n",yytext);}
+#line 47 "scanner.l"
+{error++;printf("reconocio constante invalida %s \n",yytext);return ERROR;}
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 47 "scanner.l"
+#line 48 "scanner.l"
 {error++;printf("reconocio error lexico %s \n",yytext);}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 48 "scanner.l"
+#line 49 "scanner.l"
 
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 51 "scanner.l"
+#line 52 "scanner.l"
 ;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 52 "scanner.l"
+#line 53 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
 #line 937 "scanner.c"
@@ -1934,11 +1934,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 52 "scanner.l"
+#line 53 "scanner.l"
 
 
 
-char  *tokenNames [] = { "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT"  };
+
+char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT","ERROR" };
 
 int main(void){
    enum tokens t;
@@ -1951,3 +1952,4 @@ int main(void){
 
 return 0;
 }
+
