@@ -11,13 +11,16 @@ int operadorMultiplicativo=0;
 int asignacion=0;
 int puntuacion=0;
 int letra=0;
+int error=0;
 %}
-%option outfile="lexica.c"
+%option outfile="scanner.c"
 %option nodefault
 dignumero [0-9]
 letra [[:alpha:]]
 caracter  [[:alnum:]]
-palabrareservada ["programa"|"variables"|"definir"|"leer"|"escribir" |"codigo"|"fin"]
+espacio [[:space:]]
+constanteInvalida [[:^digit:]]
+otro [[:^alnum:]]{-}[[:space :]]
 
 %%
 {dignumero}{dignumero}*     numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;
@@ -40,7 +43,9 @@ palabrareservada ["programa"|"variables"|"definir"|"leer"|"escribir" |"codigo"|"
 ")"                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 ","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 "//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
-
+{dignumero}{constanteInvalida}      {error++;printf("reconocio constante invalida %s \n",yytext);}
+{otro}+                                                  {error++;printf("reconocio error lexico %s \n",yytext);}
+{espacio}+
 
 
 .|\n                                                       ;
