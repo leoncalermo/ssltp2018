@@ -14,36 +14,40 @@ int puntuacion=0;
 %option outfile="lexica.c"
 %option nodefault
 dignumero [0-9]
-letra [[:alpha::]]
-caracter [[:alnum:]]
+letra [[:alpha:]]
+caracter  [[:alnum:]]
+palabrareservada ["programa"|"variables"|"definir"|"leer"|"escribir" |"codigo"|"fin"]
 
 %%
-{dignumero}{dignumero}*     numero++;printf("reconocio el numero %s",yytext); return NUMERO;
-{letra}{caracter}*          id++;printf("reconocio el id %s",yytext);return IDENTIFICADOR;
-"+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
-"-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
-"*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s",yytext);return OPERADORMULT;}
-"/"                                                          {operadorMultiplicativo++;printf("reconocio el operadorMultiplicativo %s",yytext);return OPERADORMULT;}
-"<-"                                                        {asignacion++;printf("reconocio el caracter de asignacion %s",yytext);return PUNT;}
-"."                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s",yytext);return PUNT;}
-"("                                                           {puntuacion++;printf("reconocio el caracter de puntuacion %s",yytext);return PUNT;}
-")"                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s",yytext);return PUNT;}
-","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s",yytext);return PUNT;}
-"//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s",yytext);return PUNT;}
-"programa"                                      {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"variables"                                        {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"definir"                                           {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"leer"                                                 {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"escribir"                                         {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"codigo"                                          {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
-"fin"                                                   {palabraReservada++;printf("reconocio la palabraReservada%s",yytext);return PALABRARESERVADA;}
+{dignumero}{dignumero}*     numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;
+{palabrareservada}+                    {palabraReservada++;printf("reconocio la palabraReservada %s \n",yytext);return PALABRARESERVADA;}
+{letra}{caracter}*            id++;printf("reconocio el id %s \n",yytext);return IDENTIFICADOR;
+"+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
+"-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s \n",yytext);return OPERADORAD;}
+"*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s \n",yytext);return OPERADORMULT;}
+"/"                                                          {operadorMultiplicativo++;printf("reconocio el operadorMultiplicativo %s \n",yytext);return OPERADORMULT;}
+"<-"                                                        {asignacion++;printf("reconocio el caracter de asignacion %s \n",yytext);return PUNT;}
+"."                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
+"("                                                           {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
+")"                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
+","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
+"//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
+
+
 
 .|\n                                                       ;
 %%
 
-int main(){
+char  *tokenNames [] = { "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT"  };
 
-yylex();
+int main(void){
+   enum tokens t;
+    
+                    while( (t = yylex() ) ){     
+                               printf("papu \n");
+}
+
+                     
 
 return 0;
 }
