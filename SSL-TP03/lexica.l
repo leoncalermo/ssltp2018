@@ -13,13 +13,13 @@ int puntuacion=0;
 %}
 %option outfile="lexica.c"
 %option nodefault
-digdecimal           [0-9]
-letra                         [a-zA-Z]
-letraONumero  [[:alnum:]]
+dignumero [0-9]
+letra [[:alpha::]]
+caracter [[:alnum:]]
 
 %%
-{digdecimal} {digdecimal}*     {numero++;printf("reconocio el numero %s",yytext); return NUMERO;}
-{letra}  {letraONumero}*          {id++;printf("reconocio el id %s",yytext);return IDENTIFICADOR;}
+{dignumero}{dignumero}*     {numero++;printf("reconocio el numero %s",yytext); return NUMERO;}
+{letra} {caracter}*          id++;printf("reconocio el id %s",yytext);return IDENTIFICADOR;
 "+"                                                          {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
 "-"                                                           {operadorAditivo++;printf("reconocio el operador Aditivo %s",yytext);return OPERADORAD;}
 "*"                                                          {operadorMultiplicativo++;printf("reconocio el operador Multiplicativo %s",yytext);return OPERADORMULT;}
@@ -40,3 +40,10 @@ letraONumero  [[:alnum:]]
 
 .|\n                                                       ;
 %%
+
+int main(){
+
+yylex();
+
+return 0;
+}
