@@ -33,7 +33,7 @@ invalidos [a-zA-Z0-9!@#$%^&_?<>]
 "escribir"                                             {palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
 "codigo"                                               {palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
 "fin"                                                        {palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
-{letra}                                            {letra++;printf("Token: Identificador   lexema: %s \n",yytext);return LETRA;}
+{letra}                                            {letra++;printf("Token: Letra   lexema: %s \n",yytext);return LETRA;}
 {letra}{caracter}*                          {id++;printf("Token: Identificador   lexema: %s \n",yytext);return IDENTIFICADOR;}
 "+"                                                          {operadorAditivo++;printf("Token: %s \n",yytext);return OPERADORAD;}
 "-"                                                           {operadorAditivo++;printf("Token: %s \n",yytext);return OPERADORAD;}

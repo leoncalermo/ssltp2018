@@ -867,7 +867,7 @@ YY_RULE_SETUP
 case 9:
 YY_RULE_SETUP
 #line 36 "scanner.l"
-{letra++;printf("Token: Identificador   lexema: %s \n",yytext);return LETRA;}
+{letra++;printf("Token: Letra   lexema: %s \n",yytext);return LETRA;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
