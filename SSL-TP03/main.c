@@ -21,8 +21,7 @@ char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "O
 int main(void){
    enum tokens t;
     
-                    while( (t = yylex() ) ){     
-                               printf("papu \n");
+                    while( (t = yylex() ) ){
 }
 
                      
