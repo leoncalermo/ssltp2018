@@ -22,6 +22,7 @@ caracter  [[:alnum:]]
 espacio [[:space:]]
 constanteInvalida [[:^digit:]]
 otro [[:^alnum:]]{-}[[:space :]]
+invalidos [a-zA-Z0-9!@#$%^&_.,?]
 
 %%
 {dignumero}{dignumero}*     {numero++;printf("reconocio el numero %s \n",yytext); return NUMERO;}
@@ -44,7 +45,7 @@ otro [[:^alnum:]]{-}[[:space :]]
 ")"                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 ","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 "//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
-{dignumero}{constanteInvalida}      {error++;printf("reconocio constante invalida %s \n",yytext);return ERROR;}
+{dignumero}{invalidos}*      {error++;printf("reconocio constante invalida %s \n",yytext);return ERROR;}
 {otro}+                                                  {error++;printf("reconocio error lexico %s \n",yytext);}
 {espacio}+
 
