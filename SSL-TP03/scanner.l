@@ -46,6 +46,7 @@ invalidos [a-zA-Z0-9!@#$%^&_.,?]
 ","                                                          {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 "//"                                                        {puntuacion++;printf("reconocio el caracter de puntuacion %s \n",yytext);return PUNT;}
 {dignumero}{invalidos}*      {error++;printf("reconocio constante invalida %s \n",yytext);return ERROR;}
+{letra}{invalidos}*                  {error++;printf("reconocio palabra invalida %s \n",yytext);return ERROR;}
 {otro}+                                                  {error++;printf("reconocio error lexico %s \n",yytext);}
 {espacio}+
 
