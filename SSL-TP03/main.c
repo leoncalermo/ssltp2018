@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tokens.h"
+#include "scanner.h"
 
 
 
@@ -21,9 +22,9 @@ char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "O
 
 int main(void){
    enum tokens t;
-    
+printf("\n ------------------------------------------------------------------------------------------------------------ \n");
                     while( (t = yylex() ) ){
-    
+      printf("Token: %s\tValor: %s\n", tokenNames[t],yytext);
 }
 
                      

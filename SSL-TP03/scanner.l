@@ -13,8 +13,10 @@ int asignacion=0;
 int puntuacion=0;
 int letra=0;
 int error=0;
+
 %}
 %option outfile="scanner.c"
+%option header-file="scanner.h"
 %option nodefault
 dignumero [0-9]
 letra [a-zA-Z]
