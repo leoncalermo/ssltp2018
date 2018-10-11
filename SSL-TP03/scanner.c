@@ -534,17 +534,9 @@ char *yytext;
 #line 1 "scanner.l"
 
 #line 7 "scanner.l"
-int id=0;
-int palabraReservada=0;
-int numero=0;
-int operadorAditivo=0;
-int operadorMultiplicativo=0;
-int asignacion=0;
-int puntuacion=0;
-int letra=0;
-int error=0;
 
-#line 548 "scanner.c"
+
+#line 540 "scanner.c"
 
 #define INITIAL 0
 
@@ -762,9 +754,9 @@ YY_DECL
 		}
 
 	{
-#line 29 "scanner.l"
+#line 21 "scanner.l"
 
-#line 768 "scanner.c"
+#line 760 "scanner.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -823,138 +815,138 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 30 "scanner.l"
-{numero++;printf("Token: Constante    lexema: %s \n",yytext); return NUMERO;}
+#line 22 "scanner.l"
+{ return NUMERO;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 31 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 23 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 32 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 24 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 33 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 25 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 34 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 26 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 35 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 27 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 36 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 28 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 37 "scanner.l"
-{palabraReservada++;printf("Token: %s \n",yytext);return PALABRARESERVADA;}
+#line 29 "scanner.l"
+{return PALABRARESERVADA;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 38 "scanner.l"
-{letra++;printf("Token: Letra   lexema: %s \n",yytext);return LETRA;}
+#line 30 "scanner.l"
+{return LETRA;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 39 "scanner.l"
-{id++;printf("Token: Identificador   lexema: %s \n",yytext);return IDENTIFICADOR;}
+#line 31 "scanner.l"
+{return IDENTIFICADOR;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 40 "scanner.l"
-{operadorAditivo++;printf("Token: %s \n",yytext);return OPERADORAD;}
+#line 32 "scanner.l"
+{return '+';}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 41 "scanner.l"
-{operadorAditivo++;printf("Token: %s \n",yytext);return OPERADORAD;}
+#line 33 "scanner.l"
+{return '-';}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 42 "scanner.l"
-{operadorMultiplicativo++;printf("Token: %s \n",yytext);return OPERADORMULT;}
+#line 34 "scanner.l"
+{return '*';}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 43 "scanner.l"
-{operadorMultiplicativo++;printf("Token: %s \n",yytext);return OPERADORMULT;}
+#line 35 "scanner.l"
+{return '/';}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 44 "scanner.l"
-{asignacion++;printf("Token: Asignación \n");return PUNT;}
+#line 36 "scanner.l"
+{return ASIGN;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 45 "scanner.l"
-{puntuacion++;printf("Token: %s \n",yytext);return PUNT;}
+#line 37 "scanner.l"
+{return PUNT;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 46 "scanner.l"
-{puntuacion++;printf("Token: %s \n",yytext);return PUNT;}
+#line 38 "scanner.l"
+{return PUNT;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 47 "scanner.l"
-{puntuacion++;printf("Token: %s \n",yytext);return PUNT;}
+#line 39 "scanner.l"
+{return PUNT;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 48 "scanner.l"
-{puntuacion++;printf("Token: %s \n",yytext);return PUNT;}
+#line 40 "scanner.l"
+{return PUNT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 49 "scanner.l"
+#line 41 "scanner.l"
 
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 50 "scanner.l"
-{error++;printf("Error léxico: constante invalida: %s \n",yytext);return ERROR;}
+#line 42 "scanner.l"
+{printf("Error léxico: constante invalida: %s \n",yytext);return ERROR;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 51 "scanner.l"
-{error++;printf("Error léxico: cadena desconocida: %s \n",yytext);return ERROR;}
+#line 43 "scanner.l"
+{printf("Error léxico: cadena desconocida: %s \n",yytext);return ERROR;}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 52 "scanner.l"
-{error++;printf("Error léxico: cadena desconocida: %s \n",yytext);}
+#line 44 "scanner.l"
+{printf("Error léxico: cadena desconocida: %s \n",yytext);}
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 53 "scanner.l"
+#line 45 "scanner.l"
 
 	YY_BREAK
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
-#line 56 "scanner.l"
+#line 48 "scanner.l"
 ;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 57 "scanner.l"
+#line 49 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 958 "scanner.c"
+#line 950 "scanner.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1955,7 +1947,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 57 "scanner.l"
+#line 49 "scanner.l"
 
 
 

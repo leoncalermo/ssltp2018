@@ -18,13 +18,27 @@
 
 
 
-char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO", "OPERADORAD", "OPERADORMULT", " ASIGN",  "PUNT"  };
+char  *tokenNames [] = {" ", "IDENTIFICADOR" , "PALABRARESERVADA" , "NUMERO",  " ASIGN",  "PUNT"  };
 
 int main(void){
    enum tokens t;
-printf("\n ------------------------------------------------------------------------------------------------------------ \n");
                     while( (t = yylex() ) ){
-      printf("Token: %s\tValor: %s\n", tokenNames[t],yytext);
+      printf("\n -------------------------------------------------------------- \n");
+     if(t=='+' || t=='-'){
+                   printf("Token: Operador aditivo\tValor: %s\n", yytext);  
+                                                  }
+else{
+      if(t=='*' || t=='/'){
+                   printf("Token: Operador multiplicativo\tValor: %s\n", yytext);  
+                                                    }
+    else{ if(t==ERROR){
+    	//nada}
+    }
+    else{   
+    	printf("Token: %s\tValor: %s\n", tokenNames[t],yytext);
+    }
+                                               }
+                                  }
 }
 
                      
