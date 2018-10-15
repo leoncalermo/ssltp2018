@@ -378,8 +378,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 26
-#define YY_END_OF_BUFFER 27
+#define YY_NUM_RULES 25
+#define YY_END_OF_BUFFER 26
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -389,14 +389,14 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[78] =
     {   0,
-        0,    0,   27,   25,   24,   24,   17,   18,   13,   11,
-       19,   12,   16,   14,    1,   25,   25,    9,    9,    9,
-        9,    9,    9,    9,    9,   23,   24,    0,   21,    1,
-       15,    0,   10,   10,   10,   10,   10,   10,   10,   10,
-       10,    0,   20,   22,   10,   10,   10,    8,   10,   10,
-       10,   20,   10,   10,   10,    5,   10,   10,   10,   10,
-       10,   10,   10,    7,   10,   10,   10,   10,    4,   10,
-       10,   10,    6,    3,   10,    2,    0
+        0,    0,   26,   24,   23,   23,   16,   17,   12,   10,
+       18,   11,   15,   13,    1,   24,   24,    9,    9,    9,
+        9,    9,    9,    9,    9,   22,   23,    0,   20,    1,
+       14,    0,    9,    9,    9,    9,    9,    9,    9,    9,
+        9,    0,   19,   21,    9,    9,    9,    8,    9,    9,
+        9,   19,    9,    9,    9,    5,    9,    9,    9,    9,
+        9,    9,    9,    7,    9,    9,    9,    9,    4,    9,
+        9,    9,    6,    3,    9,    2,    0
     } ;
 
 static yyconst YY_CHAR yy_ec[256] =
@@ -821,132 +821,127 @@ YY_RULE_SETUP
 case 2:
 YY_RULE_SETUP
 #line 23 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'variables';}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 24 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'programa';}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 25 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'definir';}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 26 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'leer';}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 27 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'escribir';}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 28 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'codigo';}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 29 "scanner.l"
-{return PALABRARESERVADA;}
+{return 'fin';}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 30 "scanner.l"
-{return LETRA;}
+{return IDENTIFICADOR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 31 "scanner.l"
-{return IDENTIFICADOR;}
+{return '+';}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 32 "scanner.l"
-{return '+';}
+{return '-';}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 33 "scanner.l"
-{return '-';}
+{return '*';}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 34 "scanner.l"
-{return '*';}
+{return '/';}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 35 "scanner.l"
-{return '/';}
+{return ASIGN;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 36 "scanner.l"
-{return ASIGN;}
+{return '.';}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 37 "scanner.l"
-{return PUNT;}
+{return '(';}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 38 "scanner.l"
-{return PUNT;}
+{return ')';}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 39 "scanner.l"
-{return PUNT;}
+{return ',';}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 40 "scanner.l"
-{return PUNT;}
+
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 41 "scanner.l"
-
+{printf("Error léxico: constante invalida: %s \n",yytext);return ERROR;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 42 "scanner.l"
-{printf("Error léxico: constante invalida: %s \n",yytext);return ERROR;}
+{printf("Error léxico: cadena desconocida: %s \n",yytext);return ERROR;}
 	YY_BREAK
 case 22:
+/* rule 22 can match eol */
 YY_RULE_SETUP
 #line 43 "scanner.l"
-{printf("Error léxico: cadena desconocida: %s \n",yytext);return ERROR;}
+{printf("Error léxico: cadena desconocida: %s \n",yytext);}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
 #line 44 "scanner.l"
-{printf("Error léxico: cadena desconocida: %s \n",yytext);}
+
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 45 "scanner.l"
-
-	YY_BREAK
-case 25:
-/* rule 25 can match eol */
-YY_RULE_SETUP
-#line 48 "scanner.l"
+#line 47 "scanner.l"
 ;
 	YY_BREAK
-case 26:
+case 25:
 YY_RULE_SETUP
-#line 49 "scanner.l"
+#line 48 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 950 "scanner.c"
+#line 945 "scanner.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1947,7 +1942,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 49 "scanner.l"
+#line 48 "scanner.l"
 
 
 
