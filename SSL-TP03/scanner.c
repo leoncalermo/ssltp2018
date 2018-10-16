@@ -528,7 +528,8 @@ char *yytext;
 #line 7 "scanner.l"
 
 
-#line 532 "scanner.c"
+#define YY_NO_INPUT 1
+#line 533 "scanner.c"
 
 #define INITIAL 0
 
@@ -588,8 +589,6 @@ extern int yywrap (void );
 #endif
 
 #ifndef YY_NO_UNPUT
-    
-    static void yyunput (int c,char *buf_ptr  );
     
 #endif
 
@@ -746,9 +745,9 @@ YY_DECL
 		}
 
 	{
-#line 20 "scanner.l"
+#line 22 "scanner.l"
 
-#line 752 "scanner.c"
+#line 751 "scanner.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -807,134 +806,136 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "scanner.l"
-{ return NUMERO;}
+#line 23 "scanner.l"
+{return NUMERO;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "scanner.l"
+#line 24 "scanner.l"
 {return 'variables';}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "scanner.l"
+#line 25 "scanner.l"
 {return 'programa';}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "scanner.l"
+#line 26 "scanner.l"
 {return 'definir';}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "scanner.l"
+#line 27 "scanner.l"
 {return 'leer';}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "scanner.l"
+#line 28 "scanner.l"
 {return 'escribir';}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 27 "scanner.l"
+#line 29 "scanner.l"
 {return 'codigo';}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 28 "scanner.l"
+#line 30 "scanner.l"
 {return 'fin';}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 29 "scanner.l"
+#line 31 "scanner.l"
 {return IDENTIFICADOR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 30 "scanner.l"
+#line 32 "scanner.l"
 {return '+';}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 31 "scanner.l"
+#line 33 "scanner.l"
 {return '-';}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 32 "scanner.l"
+#line 34 "scanner.l"
 {return '*';}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 33 "scanner.l"
+#line 35 "scanner.l"
 {return '/';}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 34 "scanner.l"
+#line 36 "scanner.l"
 {return ASIGN;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 35 "scanner.l"
+#line 37 "scanner.l"
 {return '.';}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 36 "scanner.l"
+#line 38 "scanner.l"
 {return '(';}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 37 "scanner.l"
+#line 39 "scanner.l"
 {return ')';}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 38 "scanner.l"
+#line 40 "scanner.l"
 {return ',';}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 39 "scanner.l"
+#line 41 "scanner.l"
 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 40 "scanner.l"
+#line 42 "scanner.l"
 {printf("Error léxico: constante invalida: %s \n",yytext);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 41 "scanner.l"
+#line 43 "scanner.l"
 {printf("Error léxico:  identificador invalido: %s \n",yytext);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 42 "scanner.l"
+#line 44 "scanner.l"
 {printf("Error léxico: cadena desconocida: %s \n",yytext);}
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 43 "scanner.l"
+#line 45 "scanner.l"
 
+	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 46 "scanner.l"
+{return 'EOF';}
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 46 "scanner.l"
+#line 48 "scanner.l"
 ;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 47 "scanner.l"
+#line 49 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 936 "scanner.c"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 939 "scanner.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1263,43 +1264,6 @@ static int yy_get_next_buffer (void)
 }
 
 #ifndef YY_NO_UNPUT
-
-    static void yyunput (int c, char * yy_bp )
-{
-	char *yy_cp;
-    
-    yy_cp = (yy_c_buf_p);
-
-	/* undo effects of setting up yytext */
-	*yy_cp = (yy_hold_char);
-
-	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-		{ /* need to shift things up to make room */
-		/* +2 for EOB chars. */
-		yy_size_t number_to_move = (yy_n_chars) + 2;
-		char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
-					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
-		char *source =
-				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
-
-		while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
-			*--dest = *--source;
-
-		yy_cp += (int) (dest - source);
-		yy_bp += (int) (dest - source);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars =
-			(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_buf_size;
-
-		if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-			YY_FATAL_ERROR( "flex scanner push-back overflow" );
-		}
-
-	*--yy_cp = (char) c;
-
-	(yytext_ptr) = yy_bp;
-	(yy_hold_char) = *yy_cp;
-	(yy_c_buf_p) = yy_cp;
-}
 
 #endif
 
@@ -1933,7 +1897,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 47 "scanner.l"
+#line 49 "scanner.l"
 
 
 
