@@ -43,7 +43,6 @@ diferencia[!@#$%^&_?<>]
 {letra}{letra}*{diferencia}{todos}+      {printf("Error léxico:  identificador invalido: %s \n",yytext);}
 {diferencia}+                                                  {printf("Error léxico: cadena desconocida: %s \n",yytext);}
 {espacio}+
-<<EOF>>                                        {return 'EOF';}
 
 .|\n                                                       ;
 %%

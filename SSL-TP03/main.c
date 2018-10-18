@@ -27,7 +27,7 @@ int main(void){
                             printf("Token: %s\tLexema: %s\n", tokenNames[t],yytext);
           }  else{
                       printf("Token: %s\n",yytext);
-                     if(t=='EOF'){printf("fin del archivo!!!!!!!!!!!!!!!!!!\n");return  0;} 
+                     
                   }
                printf("\n -------------------------------------------------------------- \n");
 }
