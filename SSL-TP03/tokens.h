@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-enum tokens{IDENTIFICADOR=1, NUMERO, ASIGN};
+enum tokens{FINDEARCHIVO,IDENTIFICADOR, NUMERO,VARIABLES,PROGRAMA,DEFINIR,LEER,ESCRIBIR,CODIGO,FIN,ASIGN};
 
 
 #endif

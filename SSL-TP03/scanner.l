@@ -21,13 +21,13 @@ diferencia[!@#$%^&_?<>]
 
 %%
 {dignumero}{dignumero}*     {return NUMERO;}
-"variables"                                         {return 'variables';}
-"programa"                                      {return 'programa';}
-"definir"                                              {return 'definir';}
-"leer"                                                     {return 'leer';}
-"escribir"                                             {return 'escribir';}
-"codigo"                                               {return 'codigo';}
-"fin"                                                        {return 'fin';}
+"variables"                                         {return VARIABLES;}
+"programa"                                      {return PROGRAMA;}
+"definir"                                              {return DEFINIR;}
+"leer"                                                     {return LEER;}
+"escribir"                                             {return ESCRIBIR;}
+"codigo"                                               {return CODIGO;}
+"fin"                                                        {return FIN;}
 {letra}{caracter}*                          {return IDENTIFICADOR;}
 "+"                                                          {return '+';}
 "-"                                                           {return '-';}
