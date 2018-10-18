@@ -18,19 +18,19 @@
 
 
 
-char  *tokenNames [] = {" ", "IDENTIFICADOR" , "CONSTANTE",  " ASIGNACION" };
+char  *tokenNames [] = {"FINDEARCHIVO","IDENTIFICADOR"," NUMERO","VARIABLES","PROGRAMA","DEFINIR","LEER","ESCRIBIR","CODIGO","FIN","ASIGN"};
 
 int main(void){
    enum tokens t;
                     while( (t = yylex() ) ){
-     if(t>0 && t<4){
-                            printf("Token: %s\tLexema: %s\n", tokenNames[t],yytext);
-          }  else{
-                      printf("Token: %s\n",yytext);
-                     
-                  }
-               printf("\n -------------------------------------------------------------- \n");
+     if(t == '+'|| t == '-'|| t == '*'|| t == '/'|| t == '.'|| t == ','|| t == '(' || t == ')'){
+       printf("Token: %s\n",yytext);
+     }  else{
+       printf("Token: %s\tLexema: %s\n", tokenNames[t],yytext);                     
+     }
+   printf("\n -------------------------------------------------------------- \n");
 }
+printf("Token: %s\n",tokenNames[t]);
 
                      
 

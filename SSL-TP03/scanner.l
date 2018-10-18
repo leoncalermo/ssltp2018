@@ -15,9 +15,7 @@ dignumero [0-9]
 letra [a-zA-Z]
 caracter  [[:alnum:]]
 espacio [[:space:]]
-otro [[:^alnum:]]{-}[[:space :]]
-todos [a-zA-Z0-9!@#$%^&_?<>]
-diferencia[!@#$%^&_?<>]
+error [^a-zA-Z0-9/),(.+*<[:space:]-]
 
 %%
 {dignumero}{dignumero}*     {return NUMERO;}
@@ -38,13 +36,12 @@ diferencia[!@#$%^&_?<>]
 "("                                                          {return '(';}
 ")"                                                          {return ')';}
 ","                                                          {return ',';}
-"//"{todos}*
-{dignumero}{dignumero}*{todos}+      {printf("Error léxico: constante invalida: %s \n",yytext);}
-{letra}{letra}*{diferencia}{todos}+      {printf("Error léxico:  identificador invalido: %s \n",yytext);}
-{diferencia}+                                                  {printf("Error léxico: cadena desconocida: %s \n",yytext);}
-{espacio}+
-
-.|\n                                                       ;
+"//".*	;
+{dignumero}({dignumero}|{letra})+      {printf("Error léxico: constante invalida: %s \n",yytext);}
+{letra}({caracter}|{error})+      {printf("Error léxico:  identificador invalido: %s \n",yytext);}
+{espacio}+	;
+{error}+ | 
+.                                                 {printf("Error léxico: cadena desconocida: %s \n",yytext);}
 %%
 
 
