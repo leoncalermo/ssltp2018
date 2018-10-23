@@ -1,7 +1,6 @@
 %top{
 #include  <stdio.h>
-#include  "tokens.h"
-
+#include "parser.h"
 }
 %{
 
@@ -11,6 +10,7 @@
 %option header-file="scanner.h"
 %option  noinput    
 %option  nounput
+%option yylineno
 dignumero [0-9]
 letra [a-zA-Z]
 caracter  [[:alnum:]]
@@ -18,7 +18,7 @@ espacio [[:space:]]
 error [^a-zA-Z0-9/),(.+*<[:space:]-]
 
 %%
-{dignumero}{dignumero}*     {return NUMERO;}
+{dignumero}{dignumero}*     {yylval = strdup(yytext);return NUMERO;}
 "variables"                                         {return VARIABLES;}
 "programa"                                      {return PROGRAMA;}
 "definir"                                              {return DEFINIR;}
@@ -26,7 +26,7 @@ error [^a-zA-Z0-9/),(.+*<[:space:]-]
 "escribir"                                             {return ESCRIBIR;}
 "codigo"                                               {return CODIGO;}
 "fin"                                                        {return FIN;}
-{letra}{caracter}*                          {return IDENTIFICADOR;}
+{letra}{caracter}*                          {yylval = strdup(yytext);return IDENTIFICADOR;}
 "+"                                                          {return '+';}
 "-"                                                           {return '-';}
 "*"                                                          {return '*';}
@@ -37,11 +37,11 @@ error [^a-zA-Z0-9/),(.+*<[:space:]-]
 ")"                                                          {return ')';}
 ","                                                          {return ',';}
 "//".*	;
-{dignumero}({dignumero}|{letra})+      {printf("Error léxico: constante invalida: %s \n",yytext);}
-{letra}({caracter}|{error})+      {printf("Error léxico:  identificador invalido: %s \n",yytext);}
+{dignumero}({dignumero}|{letra})+      {errorLexico++;yyerror("Error léxico: constante invalida\n");}
+{letra}({caracter}|{error})+      {errorLexico++;yyerror("Error léxico:  identificador invalido \n");}
 {espacio}+	;
 {error}+ | 
-.                                                 {printf("Error léxico: cadena desconocida: %s \n",yytext);}
+.                                                 {errorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
 %%
 
 
