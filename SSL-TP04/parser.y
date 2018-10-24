@@ -4,11 +4,12 @@
 }
 %code provides{
 void yyerror(const char *s);
-extern int errorLexico;
+extern int yyerrorLexico;
 }
 %defines "parser.h"
 %output "parser.c"
 %define api.value.type {char *}
+%define parse.error verbose
 %left  '-'  '+'
 %left  '*'  '/'
 %precedence NEG
@@ -16,7 +17,9 @@ extern int errorLexico;
 
 
 %%
-todo  :  PROGRAMA listaDeSentencias FIN  ;
+todo  :  programa { if (yynerrs || yyerrorLexico) YYABORT; } ;
+
+programa :    PROGRAMA listaDeSentencias FIN 
 
 listaDeSentencias : VARIABLES declaraciones CODIGO sentencias  
 
@@ -33,6 +36,7 @@ sentencias : 		sentencia
 sentencia     : IDENTIFICADOR ASIGN expresion '.'         {printf("asignacion \n");} 
               | LEER '('identificadores')' '.'          {printf("leer \n");} 
               | ESCRIBIR '('expresion')' '.'          {printf("escribir \n");}
+              | error '.'
                
                        ;
 
@@ -50,7 +54,7 @@ identificadores : identificadores ',' IDENTIFICADOR
 
 
 %%
-int errorLexico=0;
+int yyerrorLexico=0;
 
 /* Informa la ocurrencia de un error. */
 void yyerror(const char *s){

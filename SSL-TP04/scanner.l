@@ -37,11 +37,11 @@ error [^a-zA-Z0-9/),(.+*<[:space:]-]
 ")"                                                          {return ')';}
 ","                                                          {return ',';}
 "//".*	;
-{dignumero}({dignumero}|{letra})+      {errorLexico++;yyerror("Error léxico: constante invalida\n");}
-{letra}({caracter}|{error})+      {errorLexico++;yyerror("Error léxico:  identificador invalido \n");}
+{dignumero}({dignumero}|{letra})+      {yyerrorLexico++;yyerror("Error léxico: constante invalida\n");}
+{letra}({caracter}|{error})+      {yyerrorLexico++;yyerror("Error léxico:  identificador invalido \n");}
 {espacio}+	;
 {error}+ | 
-.                                                 {errorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
+.                                                 {yyerrorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
 %%
 
 

@@ -934,12 +934,12 @@ YY_RULE_SETUP
 case 20:
 YY_RULE_SETUP
 #line 40 "scanner.l"
-{errorLexico++;yyerror("Error léxico: constante invalida\n");}
+{yyerrorLexico++;yyerror("Error léxico: constante invalida\n");}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 41 "scanner.l"
-{errorLexico++;yyerror("Error léxico:  identificador invalido \n");}
+{yyerrorLexico++;yyerror("Error léxico:  identificador invalido \n");}
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
@@ -952,7 +952,7 @@ case 23:
 case 24:
 YY_RULE_SETUP
 #line 44 "scanner.l"
-{errorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
+{yyerrorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP

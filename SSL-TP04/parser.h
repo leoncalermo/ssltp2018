@@ -75,7 +75,7 @@ int yyparse (void);
 #line 5 "parser.y" /* yacc.c:1909  */
 
 void yyerror(const char *s);
-extern int errorLexico;
+extern int yyerrorLexico;
 
 #line 81 "parser.h" /* yacc.c:1909  */
 
