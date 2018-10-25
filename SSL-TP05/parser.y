@@ -6,6 +6,7 @@
 void yyerror(const char *s);
 extern int yyerrorLexico;
 extern int yynerrs;
+extern int nerrssem;
 }
 %defines "parser.h"
 %output "parser.c"
@@ -27,7 +28,7 @@ listaDeSentencias : VARIABLES declaraciones CODIGO sentencias
 declaraciones : declaraciones declaracion
               | declaracion        
 
-declaracion   : DEFINIR IDENTIFICADOR '.' {printf("definir %s \n", $2);} 
+declaracion   : DEFINIR IDENTIFICADOR '.' {agregarID($2);} 
               | error '.';
 
 
