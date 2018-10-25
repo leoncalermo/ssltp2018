@@ -5,6 +5,7 @@
 %code provides{
 void yyerror(const char *s);
 extern int yyerrorLexico;
+extern int yynerrs;
 }
 %defines "parser.h"
 %output "parser.c"
@@ -13,11 +14,11 @@ extern int yyerrorLexico;
 %left  '-'  '+'
 %left  '*'  '/'
 %precedence NEG
-%token FINDEARCHIVO IDENTIFICADOR NUMERO VARIABLES PROGRAMA DEFINIR LEER ESCRIBIR CODIGO FIN ASIGN
+%token IDENTIFICADOR NUMERO VARIABLES PROGRAMA DEFINIR LEER ESCRIBIR CODIGO FIN ASIGN
 
 
 %%
-todo  :  programa { if (yynerrs || yyerrorLexico) YYABORT; } ;
+todo  :  programa { if (yynerrs || yyerrorLexico) YYABORT; else YYACCEPT; } ;
 
 programa :    PROGRAMA listaDeSentencias FIN 
 
@@ -26,7 +27,8 @@ listaDeSentencias : VARIABLES declaraciones CODIGO sentencias
 declaraciones : declaraciones declaracion
               | declaracion        
 
-declaracion   : DEFINIR IDENTIFICADOR '.' {printf("definir %s \n", $2);} ;
+declaracion   : DEFINIR IDENTIFICADOR '.' {printf("definir %s \n", $2);} 
+              | error '.';
 
 
 sentencias : 		sentencia
@@ -48,6 +50,7 @@ expresion     : expresion  '+'  expresion                {printf("suma\n");}
               |  '-'  expresion    %prec  NEG            {printf("inversion\n");}
               |IDENTIFICADOR
               |NUMERO
+              ;
 
 identificadores : identificadores ',' IDENTIFICADOR 
                 | IDENTIFICADOR ;

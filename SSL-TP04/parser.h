@@ -46,17 +46,16 @@ extern int yydebug;
   enum yytokentype
   {
     NEG = 258,
-    FINDEARCHIVO = 259,
-    IDENTIFICADOR = 260,
-    NUMERO = 261,
-    VARIABLES = 262,
-    PROGRAMA = 263,
-    DEFINIR = 264,
-    LEER = 265,
-    ESCRIBIR = 266,
-    CODIGO = 267,
-    FIN = 268,
-    ASIGN = 269
+    IDENTIFICADOR = 259,
+    NUMERO = 260,
+    VARIABLES = 261,
+    PROGRAMA = 262,
+    DEFINIR = 263,
+    LEER = 264,
+    ESCRIBIR = 265,
+    CODIGO = 266,
+    FIN = 267,
+    ASIGN = 268
   };
 #endif
 
@@ -76,6 +75,7 @@ int yyparse (void);
 
 void yyerror(const char *s);
 extern int yyerrorLexico;
+extern int yynerrs;
 
 #line 81 "parser.h" /* yacc.c:1909  */
 

@@ -548,7 +548,7 @@ char *yytext;
 #line 1 "scanner.l"
 
 #line 6 "scanner.l"
-
+	char buffer[100];
 
 #define YY_NO_INPUT 1
 #line 555 "scanner.c"
@@ -934,12 +934,12 @@ YY_RULE_SETUP
 case 20:
 YY_RULE_SETUP
 #line 40 "scanner.l"
-{yyerrorLexico++;yyerror("Error léxico: constante invalida\n");}
+{yyerrorLexico++;sprintf( buffer, "Error Lexico: constante invalida %s", yytext); yyerror(buffer);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 41 "scanner.l"
-{yyerrorLexico++;yyerror("Error léxico:  identificador invalido \n");}
+{yyerrorLexico++;sprintf( buffer, "Error Lexico: identificador invalido %s", yytext); yyerror(buffer);}
 	YY_BREAK
 case 22:
 /* rule 22 can match eol */
@@ -952,7 +952,7 @@ case 23:
 case 24:
 YY_RULE_SETUP
 #line 44 "scanner.l"
-{yyerrorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
+{yyerrorLexico++; sprintf( buffer, "Error Lexico: cadena desconocida %s", yytext); yyerror(buffer);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP

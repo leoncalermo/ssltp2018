@@ -1,6 +1,6 @@
-// TP003 - 2018
+// TP004 - 2018
 //
-// Flex
+// Bison
 //
 // Grupo 07
 //
@@ -9,13 +9,11 @@
 // Diaz Argentino, Sebastian - 159.504-0
 // Grimberg, Axel - 159.378-0
 #include <stdio.h>
-#include "scanner.h"
 #include "parser.h"
 
 
 int main() {
 int x=yyparse() ;
-
 	switch( x ){
 	case 0:
 		puts("Compilacion terminada con exito"); 
@@ -27,7 +25,8 @@ int x=yyparse() ;
 		puts("Memoria insuficiente"); 
 		break;
 	}
-	
+	printf("Errores Lexicos: %d \n", yyerrorLexico);
+	printf("Errores Sintacticos: %d \n", yynerrs);
 
 	return x;
 	
