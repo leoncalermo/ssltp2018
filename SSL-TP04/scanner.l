@@ -3,7 +3,7 @@
 #include "parser.h"
 }
 %{
-
+	char buffer[100];
 
 %}
 %option outfile="scanner.c"
@@ -37,11 +37,9 @@ error [^a-zA-Z0-9/),(.+*<[:space:]-]
 ")"                                                          {return ')';}
 ","                                                          {return ',';}
 "//".*	;
-{dignumero}({dignumero}|{letra})+      {yyerrorLexico++;yyerror("Error léxico: constante invalida\n");}
-{letra}({caracter}|{error})+      {yyerrorLexico++;yyerror("Error léxico:  identificador invalido \n");}
+{dignumero}({dignumero}|{letra})+      {yyerrorLexico++;sprintf( buffer, "Error Lexico: constante invalida %s", yytext); yyerror(buffer);}
+{letra}({caracter}|{error})+      {yyerrorLexico++;sprintf( buffer, "Error Lexico: identificador invalido %s", yytext); yyerror(buffer);}
 {espacio}+	;
 {error}+ | 
-.                                                 {yyerrorLexico++;yyerror("Error léxico: cadena desconocida: %s \n");}
+.                                 {yyerrorLexico++; sprintf( buffer, "Error Lexico: cadena desconocida %s", yytext); yyerror(buffer);}
 %%
-
-
