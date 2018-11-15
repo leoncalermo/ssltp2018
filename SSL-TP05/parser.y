@@ -30,7 +30,7 @@ listaDeSentencias : VARIABLES declaraciones CODIGO sentencias
 declaraciones : declaraciones declaracion
               | declaracion        
 
-declaracion   : DEFINIR IDENTIFICADOR '.' {agregarID($2);} 
+declaracion   : DEFINIR IDENTIFICADOR '.' {if(!definirIdentificador($2)){YYERROR;};} 
               | error '.';
 
 
@@ -38,25 +38,25 @@ sentencias : 		sentencia
 			| sentencias sentencia
 			;
 
-sentencia     : IDENTIFICADOR ASIGN expresion '.'         {printf("asignacion \n");} 
-              | LEER '('identificadores')' '.'          {printf("leer \n");} 
-              | ESCRIBIR '('expresion')' '.'          {printf("escribir \n");}
+sentencia     : IDENTIFICADOR ASIGN expresion '.'         {asignar($1 , $3);} 
+              | LEER '('identificadores')' '.'             
+              | ESCRIBIR '('expresion')' '.'              {escribir($3);} 
               | error '.'
                
                        ;
 
-expresion     : expresion  '+'  expresion                {printf("suma\n");}
-              |expresion  '/'  expresion                 {printf("division\n");}
-              |expresion  '*'  expresion                 {printf("multiplicacion\n");}
-              |expresion  '-'  expresion                 {printf("resta\n");}
-              | '(' expresion ')'                        {printf("parentesis\n");}
-              |  '-'  expresion    %prec  NEG            {printf("inversion\n");}
+expresion     : expresion  '+'  expresion                {$$=(generarInfijo($1, $3, "ADD"));}
+              |expresion  '/'  expresion                 {$$=(generarInfijo($1, $3, "DIV"));}
+              |expresion  '*'  expresion                 {$$=(generarInfijo($1, $3, "MULT"));}
+              |expresion  '-'  expresion                 {$$=(generarInfijo($1, $3, "SUBS"));}
+              | '(' expresion ')'                        {$$=($2);}
+              |  '-'  expresion    %prec  NEG            {$$=(negar($2));}
               |IDENTIFICADOR
               |NUMERO
               ;
 
-identificadores : identificadores ',' IDENTIFICADOR 
-                | IDENTIFICADOR ;
+identificadores : identificadores ',' IDENTIFICADOR           {leer($3);}
+                | IDENTIFICADOR                              {leer($1);} ;
 
 
 %%
