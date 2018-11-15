@@ -6,7 +6,7 @@
 void yyerror(const char *s);
 extern int yyerrorLexico;
 extern int yynerrs;
-extern int nerrssem;
+extern int yysemerrs;
 }
 %defines "parser.h"
 %output "parser.c"
@@ -59,6 +59,7 @@ identificadores : identificadores ',' IDENTIFICADOR
 
 %%
 int yyerrorLexico=0;
+int yysemerrs=0;
 
 /* Informa la ocurrencia de un error. */
 void yyerror(const char *s){

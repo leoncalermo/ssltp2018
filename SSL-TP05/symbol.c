@@ -1,54 +1,62 @@
-#include "parser.h"
-#include "symbol.h"
-
-#include <string.h>
 #include <stdio.h>
-//#include <stdbool.h>
+#include <string.h> 
+#include "symbol.h" 
+#include "parser.h"
 
-char buffer[200];
-int posicion = 0;
-char* diccionario[100];
-
-void agregar(char* id){
-	if (posicion<100){
-	  diccionario[posicion]=strdup(id);
-	  posicion++;
-	}
-	else {
-	  printf("No hay espacio en el diccionario");
-	}
-}
-
-int declarado(char* id) {
-  int indice=0;
-  int encontrado=0;
-  while(indice < posicion && !encontrado){
-  	if (!strcmp(diccionario[indice],id)) {
-	  encontrado = 1;
- 	} else {
-	  indice++;
-	}
-  }
-}
-
-int agregarID(char* id) {
-	if(declarado(id)){
-		printf("Error semantico: identificador %s ya esta declarado",id);
-		nerrsem++;
-		return 0;
-	} else {
+char *tabla[400];
+int siguiente = 0;
+char errores[200];
+int definirIdentificador(char* id){
+	if(noExiste(id) && hayEspacio()){
 		agregar(id);
-		printf("Declare %s,Integer\n",id);
-		return 1;
+	return 1; 
 	}
-  
+return 0;
 }
 
-int comprobarID(char *id) {
-	if(!declarado(id)){
-	  printf("Error semántico: identificador %s no esta declarado",id);
-	  nerrsem++;
-	  return 0;
-	}
+int noExiste(char* x) {
+	if(buscarIdentificador(x)){
+	sprintf(errores,"identificador %s ya declarado\n", x);
+	yyerror(errores);
+	yysemerrs++;	
+	return 0;	
+	}else{return 1;}	
+}
 
+void agregar(char* x) {
+	printf("Declare %s,Integer\n", x);
+	tabla[siguiente] = x;
+	siguiente++;
+}
+
+int hayEspacio(){
+	if(siguiente>=400){
+	sprintf(errores,"hay espacio insuficiente");
+	yyerror(errores);
+	yysemerrs++;	
+	return 0;
+	}
+return 1;
+}
+int buscarIdentificador(char* id){
+	int i = 0;
+	int existe = 0;
+	while (i < siguiente && !existe) {
+		if (strcmp(id, tabla[i])==0) {
+			existe = 1;
+		}
+		
+		i++;
+	}	
+	
+	return existe;
+}
+int validarIdentificador(char* id){
+	if(!buscarIdentificador(id)){
+	sprintf(errores,"identificador %s no declarado\n", id);
+	yyerror(errores);
+	yysemerrs++;	
+	return 0;
+}
+	return 1;
 }
