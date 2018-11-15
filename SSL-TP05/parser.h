@@ -71,12 +71,13 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 5 "parser.y" /* yacc.c:1909  */
+#line 7 "parser.y" /* yacc.c:1909  */
 
 void yyerror(const char *s);
 extern int yyerrorLexico;
 extern int yynerrs;
+extern int yysemerrs;
 
-#line 81 "parser.h" /* yacc.c:1909  */
+#line 82 "parser.h" /* yacc.c:1909  */
 
 #endif /* !YY_YY_PARSER_H_INCLUDED  */

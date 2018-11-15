@@ -7,7 +7,7 @@ char *tabla[400];
 int siguiente = 0;
 char errores[200];
 int definirIdentificador(char* id){
-	if(noExiste(id) && hayEspacio()){
+	if(noExiste(id)){
 		agregar(id);
 	return 1; 
 	}
@@ -29,15 +29,7 @@ void agregar(char* x) {
 	siguiente++;
 }
 
-int hayEspacio(){
-	if(siguiente>=400){
-	sprintf(errores,"hay espacio insuficiente");
-	yyerror(errores);
-	yysemerrs++;	
-	return 0;
-	}
-return 1;
-}
+
 int buscarIdentificador(char* id){
 	int i = 0;
 	int existe = 0;

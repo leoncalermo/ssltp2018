@@ -1,6 +1,8 @@
 %code top{
 #include <stdio.h>
 #include "scanner.h"
+#include "symbol.h"
+#include "semantic.h"
 }
 %code provides{
 void yyerror(const char *s);
@@ -21,7 +23,7 @@ extern int yysemerrs;
 %%
 todo  :  programa { if (yynerrs || yyerrorLexico) YYABORT; else YYACCEPT; } ;
 
-programa :    PROGRAMA listaDeSentencias FIN 
+programa :    PROGRAMA {printf("Load rtlib,\n");} listaDeSentencias {printf("Stop,\n");} FIN 
 
 listaDeSentencias : VARIABLES declaraciones CODIGO sentencias  
 

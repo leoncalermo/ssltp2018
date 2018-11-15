@@ -63,14 +63,16 @@
 
 #include <stdio.h>
 #include "scanner.h"
+#include "symbol.h"
+#include "semantic.h"
 
-#line 68 "parser.c" /* yacc.c:316  */
+#line 70 "parser.c" /* yacc.c:316  */
 
 
 
 /* Copy the first part of user declarations.  */
 
-#line 74 "parser.c" /* yacc.c:339  */
+#line 76 "parser.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -131,19 +133,20 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 5 "parser.y" /* yacc.c:355  */
+#line 7 "parser.y" /* yacc.c:355  */
 
 void yyerror(const char *s);
 extern int yyerrorLexico;
 extern int yynerrs;
+extern int yysemerrs;
 
-#line 141 "parser.c" /* yacc.c:355  */
+#line 144 "parser.c" /* yacc.c:355  */
 
 #endif /* !YY_YY_PARSER_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 147 "parser.c" /* yacc.c:358  */
+#line 150 "parser.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -441,9 +444,9 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    21,    21,    23,    25,    27,    28,    30,    31,    34,
-      35,    38,    39,    40,    41,    45,    46,    47,    48,    49,
-      50,    51,    52,    55,    56
+       0,    24,    24,    26,    28,    30,    31,    33,    34,    37,
+      38,    41,    42,    43,    44,    48,    49,    50,    51,    52,
+      53,    54,    55,    58,    59
 };
 #endif
 
@@ -1245,73 +1248,73 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 21 "parser.y" /* yacc.c:1646  */
+#line 24 "parser.y" /* yacc.c:1646  */
     { if (yynerrs || yyerrorLexico) YYABORT; else YYACCEPT; }
-#line 1251 "parser.c" /* yacc.c:1646  */
+#line 1254 "parser.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 30 "parser.y" /* yacc.c:1646  */
-    {printf("definir %s \n", (yyvsp[-1]));}
-#line 1257 "parser.c" /* yacc.c:1646  */
+#line 33 "parser.y" /* yacc.c:1646  */
+    {agregarID((yyvsp[-1]));}
+#line 1260 "parser.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 38 "parser.y" /* yacc.c:1646  */
+#line 41 "parser.y" /* yacc.c:1646  */
     {printf("asignacion \n");}
-#line 1263 "parser.c" /* yacc.c:1646  */
+#line 1266 "parser.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 39 "parser.y" /* yacc.c:1646  */
+#line 42 "parser.y" /* yacc.c:1646  */
     {printf("leer \n");}
-#line 1269 "parser.c" /* yacc.c:1646  */
+#line 1272 "parser.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 40 "parser.y" /* yacc.c:1646  */
+#line 43 "parser.y" /* yacc.c:1646  */
     {printf("escribir \n");}
-#line 1275 "parser.c" /* yacc.c:1646  */
+#line 1278 "parser.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 45 "parser.y" /* yacc.c:1646  */
+#line 48 "parser.y" /* yacc.c:1646  */
     {printf("suma\n");}
-#line 1281 "parser.c" /* yacc.c:1646  */
+#line 1284 "parser.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 46 "parser.y" /* yacc.c:1646  */
+#line 49 "parser.y" /* yacc.c:1646  */
     {printf("division\n");}
-#line 1287 "parser.c" /* yacc.c:1646  */
+#line 1290 "parser.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 47 "parser.y" /* yacc.c:1646  */
+#line 50 "parser.y" /* yacc.c:1646  */
     {printf("multiplicacion\n");}
-#line 1293 "parser.c" /* yacc.c:1646  */
+#line 1296 "parser.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 48 "parser.y" /* yacc.c:1646  */
+#line 51 "parser.y" /* yacc.c:1646  */
     {printf("resta\n");}
-#line 1299 "parser.c" /* yacc.c:1646  */
+#line 1302 "parser.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 49 "parser.y" /* yacc.c:1646  */
+#line 52 "parser.y" /* yacc.c:1646  */
     {printf("parentesis\n");}
-#line 1305 "parser.c" /* yacc.c:1646  */
+#line 1308 "parser.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 50 "parser.y" /* yacc.c:1646  */
+#line 53 "parser.y" /* yacc.c:1646  */
     {printf("inversion\n");}
-#line 1311 "parser.c" /* yacc.c:1646  */
+#line 1314 "parser.c" /* yacc.c:1646  */
     break;
 
 
-#line 1315 "parser.c" /* yacc.c:1646  */
+#line 1318 "parser.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1539,9 +1542,10 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 59 "parser.y" /* yacc.c:1906  */
+#line 62 "parser.y" /* yacc.c:1906  */
 
 int yyerrorLexico=0;
+int yysemerrs=0;
 
 /* Informa la ocurrencia de un error. */
 void yyerror(const char *s){
