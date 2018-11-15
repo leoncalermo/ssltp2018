@@ -1,4 +1,4 @@
-// TP004 - 2018
+// TP05 - 2018
 //
 // Bison
 //
@@ -10,7 +10,11 @@
 // Grimberg, Axel - 159.378-0
 #include <stdio.h>
 #include "parser.h"
+#include "scanner.h"
 
+extern int yynerrs;
+int nerrsem = 0;
+int yylexerrs = 0;
 
 int main() {
 int x=yyparse() ;
@@ -27,7 +31,7 @@ int x=yyparse() ;
 	}
 	printf("Errores Lexicos: %d \n", yyerrorLexico);
 	printf("Errores Sintacticos: %d \n", yynerrs);
-
+	printf("Errores Sintacticos: %d \n", yysemerrs);
 	return x;
 	
 }

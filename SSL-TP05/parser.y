@@ -21,7 +21,7 @@ extern int yysemerrs;
 
 
 %%
-todo  :  programa { if (yynerrs || yyerrorLexico) YYABORT; else YYACCEPT; } ;
+todo  :  programa { if (yynerrs || yyerrorLexico || yysemerrs) YYABORT; else YYACCEPT; } ;
 
 programa :    PROGRAMA {printf("Load rtlib,\n");} listaDeSentencias {printf("Stop,\n");} FIN 
 
@@ -51,7 +51,7 @@ expresion     : expresion  '+'  expresion                {$$=(generarInfijo($1, 
               |expresion  '-'  expresion                 {$$=(generarInfijo($1, $3, "SUBS"));}
               | '(' expresion ')'                        {$$=($2);}
               |  '-'  expresion    %prec  NEG            {$$=(negar($2));}
-              |IDENTIFICADOR
+              |IDENTIFICADOR   { if(!validarIdentificador($1)){YYERROR;};}
               |NUMERO
               ;
 
@@ -60,10 +60,6 @@ identificadores : identificadores ',' IDENTIFICADOR           {leer($3);}
 
 
 %%
-int yyerrorLexico=0;
-int yysemerrs=0;
-
-/* Informa la ocurrencia de un error. */
 void yyerror(const char *s){
 	printf("línea #%d: %s\n", yylineno, s);
 	return;

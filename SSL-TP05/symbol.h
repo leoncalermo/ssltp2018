@@ -4,7 +4,7 @@
 int definirIdentificador(char* id);
 int noExiste(char* x);
 void agregar(char* x);
-int buscarIdentificador(char* id)
-int validarIdentificador(char* id)
+int buscarIdentificador(char* id);
+int validarIdentificador(char* id);
 
 #endif

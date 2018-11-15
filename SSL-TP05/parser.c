@@ -1252,7 +1252,7 @@ yyreduce:
     {
         case 2:
 #line 24 "parser.y" /* yacc.c:1646  */
-    { if (yynerrs || yyerrorLexico) YYABORT; else YYACCEPT; }
+    { if (yynerrs || yyerrorLexico || yysemerrs) YYABORT; else YYACCEPT; }
 #line 1257 "parser.c" /* yacc.c:1646  */
     break;
 
@@ -1322,20 +1322,26 @@ yyreduce:
 #line 1323 "parser.c" /* yacc.c:1646  */
     break;
 
+  case 23:
+#line 54 "parser.y" /* yacc.c:1646  */
+    { if(!validarIdentificador((yyvsp[0]))){YYERROR;};}
+#line 1329 "parser.c" /* yacc.c:1646  */
+    break;
+
   case 25:
 #line 58 "parser.y" /* yacc.c:1646  */
     {leer((yyvsp[0]));}
-#line 1329 "parser.c" /* yacc.c:1646  */
+#line 1335 "parser.c" /* yacc.c:1646  */
     break;
 
   case 26:
 #line 59 "parser.y" /* yacc.c:1646  */
     {leer((yyvsp[0]));}
-#line 1335 "parser.c" /* yacc.c:1646  */
+#line 1341 "parser.c" /* yacc.c:1646  */
     break;
 
 
-#line 1339 "parser.c" /* yacc.c:1646  */
+#line 1345 "parser.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1565,10 +1571,6 @@ yyreturn:
 }
 #line 62 "parser.y" /* yacc.c:1906  */
 
-int yyerrorLexico=0;
-int yysemerrs=0;
-
-/* Informa la ocurrencia de un error. */
 void yyerror(const char *s){
 	printf("línea #%d: %s\n", yylineno, s);
 	return;
