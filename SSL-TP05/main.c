@@ -12,9 +12,9 @@
 #include "parser.h"
 #include "scanner.h"
 
-extern int yynerrs;
-int nerrsem = 0;
-int yylexerrs = 0;
+int yyerrorLexico;
+int yynerrs;
+int yysemerrs;
 
 int main() {
 int x=yyparse() ;

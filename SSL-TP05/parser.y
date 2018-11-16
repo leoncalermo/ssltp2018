@@ -51,13 +51,14 @@ expresion     : expresion  '+'  expresion                {$$=(generarInfijo($1, 
               |expresion  '-'  expresion                 {$$=(generarInfijo($1, $3, "SUBS"));}
               | '(' expresion ')'                        {$$=($2);}
               |  '-'  expresion    %prec  NEG            {$$=(negar($2));}
-              |IDENTIFICADOR   { if(!validarIdentificador($1)){YYERROR;};}
+              |id   
               |NUMERO
               ;
 
-identificadores : identificadores ',' IDENTIFICADOR           {leer($3);}
-                | IDENTIFICADOR                              {leer($1);} ;
+identificadores : identificadores ',' id           {leer($3);}
+                | id                             {leer($1);} ;
 
+id : IDENTIFICADOR { if(!validarIdentificador($1)){YYERROR;};} ;
 
 %%
 void yyerror(const char *s){
