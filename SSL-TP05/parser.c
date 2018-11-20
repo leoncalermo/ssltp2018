@@ -1288,25 +1288,25 @@ yyreduce:
 
   case 17:
 #line 48 "parser.y" /* yacc.c:1646  */
-    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), "ADD"));}
+    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), '+'));}
 #line 1293 "parser.c" /* yacc.c:1646  */
     break;
 
   case 18:
 #line 49 "parser.y" /* yacc.c:1646  */
-    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), "DIV"));}
+    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), '/'));}
 #line 1299 "parser.c" /* yacc.c:1646  */
     break;
 
   case 19:
 #line 50 "parser.y" /* yacc.c:1646  */
-    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), "MULT"));}
+    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), '*'));}
 #line 1305 "parser.c" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 51 "parser.y" /* yacc.c:1646  */
-    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), "SUBS"));}
+    {(yyval)=(generarInfijo((yyvsp[-2]), (yyvsp[0]), '-'));}
 #line 1311 "parser.c" /* yacc.c:1646  */
     break;
 
