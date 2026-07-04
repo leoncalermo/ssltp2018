@@ -1,0 +1,4 @@
+img_cache/
+preview_page*.jpg
+__pycache__/
+*.pyc
